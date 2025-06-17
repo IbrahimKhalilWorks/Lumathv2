@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Navbar scroll effect
+ 
   const navbar = document.getElementById("navbar")
 
   window.addEventListener("scroll", () => {
@@ -9,8 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
       navbar.classList.remove("scrolled")
     }
   })
-
-  // Smooth scroll for navigation links
+ 
   document.querySelectorAll(".nav-link").forEach((link) => {
     link.addEventListener("click", function (e) {
       e.preventDefault()
@@ -25,8 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   })
-
-  // Animated Icon functionality
+ 
   const icon = document.getElementById("icon")
   const orbit = document.getElementById("icon-orbit")
   const ripple = document.getElementById("ripple")
@@ -34,8 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const touchGlow = document.getElementById("touch-glow")
   const safariBlur = document.getElementById("safariblur")
   const glow = document.getElementById("glow")
-
-  // Mouse movement effects
+ 
   container.addEventListener("mousemove", (e) => {
     const rect = container.getBoundingClientRect()
     const x = e.clientX - rect.left
@@ -60,8 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     glow.style.opacity = ""
     glow.style.transform = "translate(-50%, -50%)"
   })
-
-  // Device orientation for mobile
+ 
   if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", (event) => {
       const beta = event.beta || 0
@@ -71,8 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       orbit.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`
     })
   }
-
-  // Floating animation - removed transform to avoid conflict with positioning
+ 
   let angle = 0
   function animateFloat() {
     angle += 0.015
@@ -84,14 +79,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   animateFloat()
-
-  // Safari blur detection
+ 
   const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
   if (isSafari) {
     safariBlur.style.display = "block"
   }
-
-  // Scroll functionality for the icon
+ 
   container.addEventListener("click", () => {
     const nextSection = document.querySelector("#why-matters")
     if (nextSection) {
@@ -101,8 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     }
   })
-
-  // Contact form submission
+ 
   const contactForm = document.querySelector(".contact-form")
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
@@ -110,8 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Message submitted successfully!")
     })
   }
-
-  // Fade-in animation for sections
+ 
   const fadeInOptions = {
     threshold: 0.1,
     rootMargin: "0px 0px -50px 0px",
@@ -125,8 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   }, fadeInOptions)
-
-  // Add fade-in class to elements and observe them
+ 
   const elementsToAnimate = document.querySelectorAll(
     ".section-content, .application-item, .why-matters-content, .compatibility-content, .ventures-content, .contact-content",
   )
@@ -134,8 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     el.classList.add("fade-in")
     fadeInObserver.observe(el)
   })
-
-  // Button hover effects
+ 
   const buttons = document.querySelectorAll(".see-all-btn, .ventures-btn, .submit-btn")
   buttons.forEach((button) => {
     button.addEventListener("mouseenter", function () {
@@ -146,8 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
       this.style.transform = "translateY(0)"
     })
   })
-
-  // Smooth scrolling for anchor links
+ 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault()
@@ -161,9 +149,35 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   })
-
-  // Optimize for mobile touch
+ 
   if ("ontouchstart" in window) {
     document.body.classList.add("touch-device")
   }
 })
+
+
+ 
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (mobileMenuBtn && mobileMenu) {
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuBtn.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+  });
+ 
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenuBtn.classList.remove('active');
+      mobileMenu.classList.remove('active');
+    });
+  });
+ 
+  document.addEventListener('click', (e) => {
+    if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenuBtn.classList.remove('active');
+      mobileMenu.classList.remove('active');
+    }
+  });
+}
