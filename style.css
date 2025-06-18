@@ -68,7 +68,6 @@ body {
   margin-top: 10px;
 }
 
-/* FIXED: Navbar width properly reduces to 768px when scrolled */
 .navbar.scrolled .nav-container {
   max-width: 768px;
 }
@@ -127,7 +126,7 @@ body {
   width: 100%;
 }
 
-/* Header Section with Top Overlay and Bottom Fade */
+/* Header Section */
 .header-section {
   position: relative;
   min-height: 100vh;
@@ -145,7 +144,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(2, 5, 19, 0.7); /* semi-transparent dark overlay */
+  background: rgba(2, 5, 19, 0.7);  
   z-index: 1;
 }
 
@@ -164,8 +163,7 @@ body {
   pointer-events: none;
   z-index: 2;
 }
-
-/* Ensure header content appears above overlays */
+ 
 .header-section > * {
   position: relative;
   z-index: 3;
@@ -391,7 +389,6 @@ body {
   }
 }
 
-
 /* Why It Matters */
 .why-matters-content {
   display: grid;
@@ -593,7 +590,7 @@ body {
   color: var(--white);
 }
 
-/* Core Applications Icon Hover Effects */
+/* Core Applications  */
 .application-item:hover .application-icon {
   transform: scale(1.2) rotate(360deg);
   background: var(--lumath-blue);
@@ -726,7 +723,7 @@ body {
   font-weight: 500;
 }
 
-/* FIXED: Contact Section - Exactly matching the image */
+/*  Contact Section */
 .contact-section {
   background: #1a1b2e;
   color: var(--white);
@@ -751,8 +748,7 @@ body {
   position: relative;
   z-index: 10;
 }
-
-/* FIXED: Title split into two lines */
+ 
 .contact-left h2 {
   font-size: 3rem;
   font-weight: 800;
@@ -813,8 +809,7 @@ body {
   outline: none;
   border-bottom-color: #8b5cf6;
 }
-
-/* FIXED: Centered submit button */
+ 
 .form-submit-container {
   display: flex;
   justify-content: center;
@@ -900,8 +895,7 @@ body {
   background: rgba(255, 255, 255, 0.3);
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-/* Mobile Menu Button - Hidden on desktop */
+} 
 .mobile-menu-btn {
   display: none;
   flex-direction: column;
@@ -962,8 +956,7 @@ body {
   background: rgba(48, 91, 137, 0.1);
   color: var(--lumath-blue);
 }
-
-/* Mobile Menu Animations */
+ 
 .mobile-menu.active {
   display: block;
   animation: slideDown 0.3s ease-out;
@@ -991,8 +984,7 @@ body {
     transform: translateY(0);
   }
 }
-
-/* Show mobile menu button only on mobile */
+ 
 @media (max-width: 768px) {
   .mobile-menu-btn {
     display: flex;
